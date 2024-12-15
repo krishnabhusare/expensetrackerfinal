@@ -5,6 +5,8 @@ const AWS = require('aws-sdk');
 const sequelize = require('../util/database');
 
 
+
+
 function uploadtos3(data,filename){
     const BUCKET_NAME=process.env.BUCKET_NAME;
     const IAM_USER_KEY=process.env.IAM_USER_KEY;

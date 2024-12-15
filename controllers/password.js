@@ -4,6 +4,7 @@ const uuid = require('uuid');
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 
+
 const forgotPassword = async (req, res, next) => {
 
     Sib.ApiClient.instance.authentications['api-key'].apiKey =process.env.forgot_password_key;

@@ -1,10 +1,11 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+
 const sequelize = require('./util/database');
 const User = require('./models/user');
 const Expense = require('./models/expense');
-const userAuthentication = require('./middleware/auth');
+
 const Order = require('./models/order');
 const Forgotpassword = require('./models/forgotpassword');
 const path = require('path');
@@ -13,6 +14,7 @@ const userRoutes = require('./routes/user');
 const expenseRoutes = require('./routes/expense');
 const passwordroutes = require('./routes/password');
 const premiumroutes = require('./routes/premium');
+
 
 
 
@@ -34,9 +36,9 @@ app.use('/user', userRoutes);
 
 
 
-app.use('/expense', userAuthentication.authenticate,expenseRoutes );
+app.use('/expense',expenseRoutes );
 
-app.use('/premium', userAuthentication.authenticate,premiumroutes );
+app.use('/premium',premiumroutes );
 
 app.use('/password',passwordroutes );
 

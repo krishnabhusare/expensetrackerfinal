@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const Razorpay = require('razorpay');
 const User = require('../models/user');
 
+
 function tokengenerator(id, ispremiumuser) {
     return jwt.sign({ userId: id, ispremiumuser },process.env.BCRYPT_SECRETE_KEY);
 }
