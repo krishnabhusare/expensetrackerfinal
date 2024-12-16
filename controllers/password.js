@@ -31,7 +31,7 @@ const forgotPassword = async (req, res, next) => {
         sendSmtpEmail.to = [{ email: email, name: 'kanha' }];
         sendSmtpEmail.subject = 'reset expense tracking app password';
         sendSmtpEmail.textContent = 'This is a test email sent from Node.js using Brevo.';
-        sendSmtpEmail.htmlContent = `<a href="http://13.235.90.148:3000/password/resetpassword/${id}">Reset password</a>`;
+        sendSmtpEmail.htmlContent = `<a href="http://3.109.208.122:3000/password/resetpassword/${id}">Reset password</a>`;
 
 
         await apiInstance.sendTransacEmail(sendSmtpEmail).then(response=>{

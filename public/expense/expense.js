@@ -10,7 +10,7 @@ function expense(e) {
         category: e.target.category.value
     }
     const token = localStorage.getItem('token');
-    axios.post('http://13.235.90.148:3000/expense/add-expense', expenseDetails, { headers: { Authorization: token } })
+    axios.post('http://3.109.208.122:3000/expense/add-expense', expenseDetails, { headers: { Authorization: token } })
         .then(result => {
 
             addExpenseToUi(result.data.expenseData);
@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-    axios.get('http://13.235.90.148:3000/expense/get-expense', { headers: { "Authorization": token } })
+    axios.get('http://3.109.208.122:3000/expense/get-expense', { headers: { "Authorization": token } })
         .then(result => {
 
             for (let i = 0; i < result.data.allExpense.length; i++) {
@@ -64,7 +64,7 @@ function addExpenseToUi(obj) {
 function deleteExpenseFromUi(e, obj) {
     const token = localStorage.getItem('token');
 
-    axios.delete(`http://13.235.90.148:3000/expense/delete-expense/${obj}`, { headers: { Authorization: token } });
+    axios.delete(`http://3.109.208.122:3000/expense/delete-expense/${obj}`, { headers: { Authorization: token } });
     const parentElement = document.getElementById(`expense-${obj}`);
 
     parentElement.remove();
@@ -76,13 +76,13 @@ function rzp(e) {
     const token = localStorage.getItem('token');
 
 
-    axios.get('http://13.235.90.148:3000/premium/buy-premium', { headers: { Authorization: token } })
+    axios.get('http://3.109.208.122:3000/premium/buy-premium', { headers: { Authorization: token } })
         .then(result => {
             const options = {
                 key_id: result.data.key_id,
                 order_id: result.data.order.id,
                 handler: async function (result) {
-                    const res = await axios.post('http://13.235.90.148:3000/premium/updatetransictionstatus', {
+                    const res = await axios.post('http://3.109.208.122:3000/premium/updatetransictionstatus', {
                         order_id: options.order_id,
                         payment_id: result.razorpay_payment_id,
                     }, { headers: { Authorization: token } });
@@ -132,7 +132,7 @@ async function leadeboard(event){
     
      
 
-   const leaderboarddata = await  axios.get('http://13.235.90.148:3000/premium/showleaderboard',{headers:{Authorization:token}});
+   const leaderboarddata = await  axios.get('http://3.109.208.122:3000/premium/showleaderboard',{headers:{Authorization:token}});
        document.getElementById('leaderboard').innerHTML +=`<h1>Leaderboard</h1>`;
        
        leaderboarddata.data.leaderboard.forEach(element => {
@@ -152,7 +152,7 @@ async function leadeboard(event){
 
 function download(){
     const token = localStorage.getItem('token');
-    axios.get('http://13.235.90.148:3000/expense/download',{headers:{Authorization:token}})
+    axios.get('http://3.109.208.122:3000/expense/download',{headers:{Authorization:token}})
     .then(response=>{
         if(response.status===200){
             var a = document.createElement('a');

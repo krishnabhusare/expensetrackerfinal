@@ -16,24 +16,11 @@ const passwordroutes = require('./routes/password');
 const premiumroutes = require('./routes/premium');
 
 
-
-
-
-
-
-
-
-
-
 const app = express();
 app.use(cors());
 app.use(express.json());
 
 app.use('/user', userRoutes);
-
-
-
-
 
 
 app.use('/expense',expenseRoutes );

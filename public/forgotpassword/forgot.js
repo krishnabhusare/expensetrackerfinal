@@ -3,7 +3,7 @@ function forgotpasswor(event){
   const userDetails ={email: event.target.email.value};
  
 
-  axios.post('http://13.235.90.148:3000/password/forgotpassword',userDetails).then(result=>{
+  axios.post('http://3.109.208.122:3000/password/forgotpassword',userDetails).then(result=>{
     document.body.innerHTML += `<div style='color:green'>mail sent successfully</div>`;
 }).catch(err=>{
     document.body.innerHTML += `<div style='color:red'>${err}</div>`
