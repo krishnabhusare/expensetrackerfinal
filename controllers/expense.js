@@ -80,7 +80,7 @@ const deleteExpense = async (req, res, next) => {
 
 
 
-        const dlt = await Expense.destroy({ where: { id: uid, userId: req.user.id } }, { transaction: t });
+        const dlt = await Expense.destroy({ where: { id: uid, userId: req.user.id } ,transaction:t});
         const totalexpense = Number(req.user.totalexpense) - Number(amount[0].amount);
         await User.update({
             totalexpense: totalexpense

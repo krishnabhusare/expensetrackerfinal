@@ -9,7 +9,7 @@ const Expense = require('./models/expense');
 const Order = require('./models/order');
 const Forgotpassword = require('./models/forgotpassword');
 const path = require('path');
-path.dirname('');
+
 const userRoutes = require('./routes/user');
 const expenseRoutes = require('./routes/expense');
 const passwordroutes = require('./routes/password');
