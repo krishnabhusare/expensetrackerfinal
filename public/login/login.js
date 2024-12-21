@@ -6,7 +6,7 @@ function login(e){
         password:e.target.password.value
     }
 
-    axios.post('http://3.110.117.219:3000/user/login',loginDetails)
+    axios.post('http://15.207.20.132:3000/user/login',loginDetails)
     .then(result=>{
        
         alert(result.data.message);

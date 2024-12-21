@@ -7,7 +7,7 @@ function signup(event){
         password:event.target.password.value
     }
     
-    axios.post('http://3.110.117.219:3000/user/signup',signupdetails)
+    axios.post('http://15.207.20.132:3000/user/signup',signupdetails)
     .then(result=>{
         window.location.href = '../login/login.html';
     })
